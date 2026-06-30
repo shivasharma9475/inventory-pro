@@ -1,5 +1,5 @@
 // controllers/companySettings.controller.js
-const User      = require("../models/User.model");
+const User      = require("../models/user.model");
 const imagekit  = require("../utils/imagekit");
 
 // ── GET /api/company-settings  (admin only) ───────────────────────────────────
