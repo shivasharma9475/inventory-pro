@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  }
+}
