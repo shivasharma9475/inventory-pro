@@ -22,11 +22,13 @@ const app = express();
 app.use(helmet());
 
 // CORS
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-];
-
+const allowedOrigins = process.env.NODE_ENV === "production"
+  ? [process.env.CLIENT_URL]
+  : [
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ];
+    
 app.use(
   cors({
     origin: function (origin, callback) {
