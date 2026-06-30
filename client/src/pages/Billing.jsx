@@ -9,8 +9,8 @@ import {
   PaymentMethodSelector,
   UPIPanel, CardPanel, CashPanel, BankHintPanel, BankPanel,
   PaymentStatusBar,
-} from "../components/billing/PaymentPanel";
-import { ReceiptDocument } from "../components/billing/ReceiptDocument";
+} from "../components/billing/paymentPanel";
+import { ReceiptDocument } from "../components/billing/receiptDocument";
 import BarcodeScannerPanel from "../components/billing/BarcodeScannerPanel";
 import socket from "../socket";
 import BillHistory from "../components/billing/billingHistory";
