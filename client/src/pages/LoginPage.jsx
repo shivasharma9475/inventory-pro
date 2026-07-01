@@ -50,6 +50,8 @@ export default function LoginPage() {
     setForgotForm((p) => ({ ...p, [field]: e.target.value }));
 
 const handleLogin = async () => {
+  console.log("handleLogin called");
+  console.log("API URL:", import.meta.env.VITE_API_URL);
   if (loginLoading) return;
 
   const errs = validateLogin(loginForm);
