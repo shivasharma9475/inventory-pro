@@ -21,18 +21,27 @@ const app = express();
 // Security
 app.use(helmet());
 
-console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log("CLIENT_URL:", process.env.CLIENT_URL);
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://inventory-pro-cyan.vercel.app",
+];
 
-// CORS
 app.use(
   cors({
-    origin: "https://inventory-pro-cyan.vercel.app",
+    origin(origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.json());
